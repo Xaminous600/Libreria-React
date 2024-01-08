@@ -21,7 +21,7 @@ export function Filtros(){
                     <select onClick={handleFilterGenre}>
                         <option value='all'>Todos</option>
                         <option value='Fantasía'>Fantasía</option>
-                        <option value='Ciencia Ficción'> Ciencia ficción</option>
+                        <option value='Ciencia ficción'> Ciencia ficción</option>
                         <option value='Zombies'>Zombies</option>
                         <option value='Terror'> Terror</option>
                 </select>

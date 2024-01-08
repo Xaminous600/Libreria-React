@@ -3,7 +3,11 @@ import { LibroContext } from "../context/libroState";
 
 export function useLibro(){
 
-    const context = useContext(LibroContext);
+    const {libros, librosFavoritos, addFavorito, removeFavorito} = useContext(LibroContext);
 
-    return context;
+    function libroEnFavorito(libro){
+        return librosFavoritos.some(item => item.ISBN === libro.ISBN);
+    }
+
+    return {libros, librosFavoritos, addFavorito, libroEnFavorito, removeFavorito};
 }

@@ -1,33 +1,50 @@
-import {createContext, useEffect, useState } from "react";
+import {createContext, useEffect, useState, useReducer } from "react";
 import datosLibros from '../data/books.json';
 
 export const LibroContext = createContext();
 
+const initialStateFavoritos = [];
+
+function reducerFavorito(state, action){
+
+    switch(action.type){
+        case 'ADD_FAVORITO': {
+            return [...state, action.payload];
+        }
+
+        case 'REMOVE_FAVORITO': {
+            return state.filter(item => item.ISBN !== action.payload.ISBN);
+        }
+
+        return state;
+    }
+}
+
 export function LibroProvider({children}){
-    const [librosFavoritos, setLibrosFavoritos] = useState([]);
     const [libros, setLibros] = useState(datosLibros);
 
+    const [state, dispatch] = useReducer(reducerFavorito, initialStateFavoritos);
+
     function addFavorito(libro){
-        setLibrosFavoritos(oldData =>[
-            ...oldData, libro
-        ]
-        )
-    }
-    
-    function libroEnFavorito(libro){
-        return librosFavoritos.some(item => item.ISBN === libro.ISBN);
+        console.log(libro);
+        dispatch({
+            type: 'ADD_FAVORITO',
+            payload: libro
+        })
     }
 
     function removeFavorito(libro){
-        setLibrosFavoritos(oldData => oldData.filter(item => item.ISBN !== libro.ISBN));
+        dispatch({
+            type: 'REMOVE_FAVORITO',
+            payload: libro
+        })
     }
     
     return(
         <LibroContext.Provider value={{
             libros,
-            librosFavoritos,
+            librosFavoritos: state,
             addFavorito,
-            libroEnFavorito,
             removeFavorito
         }}>
             {children}
