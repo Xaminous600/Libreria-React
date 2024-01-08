@@ -1,0 +1,35 @@
+.principalFiltro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.filtroGenero{
+    flex-direction: row;
+    display: flex;
+    align-items: center;    
+}
+
+.filtroGenero h3{
+    color: antiquewhite;
+}
+
+.filtroGenero div{
+    margin-left: 10px;
+}
+
+.filtroTitulo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.filtroTitulo h3{
+    color: antiquewhite;
+}
+
+.filtroTitulo div{
+    margin-left: 10px;
+}
+

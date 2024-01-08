@@ -1,0 +1,64 @@
+.fav-button{
+    align-items: center;
+    background: #09f;
+    border-radius: 9999px;
+    cursor: pointer;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    padding: 4px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    transition: all .3s ease;
+    width: 32px;
+    z-index: 9999;
+}
+
+.fav-button:hover {
+    scale: 1.1;
+  }
+  
+.fav-button + input:checked + .menuDesplegable {
+    height: 100%;
+    display: block;
+}
+
+.menuDesplegable {
+    background: #1f1f11;
+    display: none;
+    padding: 32px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    width: 200px;
+}
+
+.menuDesplegable ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuDesplegable ul li{
+    box-shadow: 0 0 10px 1px #fff;
+    border-radius: 4px;
+    background: #111;
+    color: #fff;
+    padding: 2rem 2rem 2rem 2rem;
+    border-color: #fff;
+    flex-direction: column;
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.menuDesplegable ul li button{
+    border-radius: 20px;
+    margin-top: auto;
+}
+
+.menuDesplegable img{
+    aspect-ratio: 6/9;
+    width: 100%;
+}
